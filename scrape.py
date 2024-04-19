@@ -50,7 +50,11 @@ def scrape_site(url, session, base_path):
 # Main execution setup
 if __name__ == "__main__":
     urls = [
-    "http://turkeysyslliliijxakijy4d6uvlhwrfimik2y2bwlbxyx3kbb6he7yd.onion/" #Turkeys
+    "http://ranionuqvczpnypve3xle3srlbkn4rxp7eudpe74zddsfjvz3y7vkkyd.onion", #Ranion - Better & Cheapest FUD Ransomware + Darknet C2 + NO Fees (first ranion-site)
+    "http://ssg3qvvu62kjmmltvlt574vdmv5jnklya3kqgefbvk7bpgjxyfe7vbqd.onion", #Ranion - Better & Cheapest FUD Ransomware + Darknet C2 + NO Fees (ranion1day.pdf)
+    "http://ranionxxduzxdgtgyy45x6l45b2gr2foqq65bryca3ao2d5i77dn4yi.onion", #RANI N - Better & Cheapest FUD Ransomware + Darknet C2 +NO Fees (ranion1month.pdf)
+    "http://zrnotglnw5nt2dr4cqxq3au7enxhc7rpaies6otvh33xclmazofog7ad.onion/", #Pathfinder 2024 (pathfinder first site ratpathfinder1.pdf) 
+    "https://ratapsxmscox65ela7eeq6ahrpiggqpshvozojk3eseikumr7ptnhdqd.onion/", #Pathfinder (ratpathfinder2.pdf)
 ]
 
     session = requests.session()
