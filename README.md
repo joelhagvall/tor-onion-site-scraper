@@ -52,8 +52,8 @@ Contributions are welcome! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) fo
 
 ## Authors
 
-- **Joel Hägvall** - _Initial Work_
-- **Giancarlo Valverde** - _Further Development_
+- **Joel Hägvall** - _Developer_
+- **Giancarlo Valverde** - _Developer_
 
 ## License
 
