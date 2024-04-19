@@ -48,7 +48,7 @@ python scraper.py
 
 ## Contributing
 
-Contributions are welcome! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
 
 ## Authors
 
@@ -57,8 +57,8 @@ Contributions are welcome! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) fo
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
 
 ## Acknowledgments
 
-- Thanks to the Tor Project for providing the tools that make this type of anonymous communication possible.
+
