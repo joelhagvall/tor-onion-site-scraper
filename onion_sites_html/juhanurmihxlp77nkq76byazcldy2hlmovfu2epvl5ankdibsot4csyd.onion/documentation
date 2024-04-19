@@ -1,0 +1,134 @@
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+    Ahmia - Documentation 
+  </title>
+  <meta name="description"
+        content="A search engine for services accessible on the Tor network.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/static/js/jquery.min.js"></script>
+
+  <link title="Ahmia Search" type="application/opensearchdescription+xml" rel="search" href="/static/opensearch_html.xml" />
+  <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/static/css/styles.css">
+
+  <link rel="stylesheet"
+    href="data:text/css;base64,QC1tb3otZG9jdW1lbnQgcmVnZXhwKCcoPyFodHRwcz86Ly9haG1pYVxcLmZpfGh0dHBzPzovL2xvY2FsaG9zdHxodHRwcz86Ly8xMjdcXC4wXFwuMFxcLjF8aHR0cDovL2p1aGFudXJtaS4qY3N5ZFxcLm9uaW9ufGh0dHA6Ly9tc3lkcXN0Lioya3plcmRnXFwub25pb24pLionKXtib2R5OmJlZm9yZXttYXJnaW4tbGVmdDoxMCU7bWFyZ2luLXRvcDoyMCU7bWFyZ2luLXJpZ2h0OjEwJTtjb2xvcjpyZWQ7Zm9udC1zaXplOjIwMCU7Y29udGVudDoiV2FybmluZzogWW91IGFyZSB1c2luZyBhIG1hbi1pbi10aGUtbWlkZGxlIGZha2UgY2xvbmUgc2l0ZSAtLSBWaXNpdCBodHRwczovL2FobWlhLmZpLyB0byBmaW5kIHJpZ2h0IG9uaW9uIGFkZHJlc3MuIjtkaXNwbGF5OmJsb2NrfWE6YmVmb3Jle2NvbG9yOnJlZDtjb250ZW50OiJbU0NBTV0gIn0jYWhtaWFNYWluQ29udGVudCwjaW1hZ2VPdmVybGF5e2Rpc3BsYXk6bm9uZX19I3dhcm5pbmd7ZGlzcGxheTpub25lfQ">
+</head>
+
+<body class="">
+
+
+
+<div class="outer">
+
+  <div id="content" class="inner">
+
+    <div id="ahmiaHeader" class="maxi">
+    <div id="notTorBrowserWarning" style="display:none">
+      <p>
+        Unfortunately we have not deployd non-JavaScript version of Ahmia yet.
+      </p>
+      </div>
+      
+        <div class="maxiContent">
+          <h1><a href="/">Ahmia</a></h1>
+          <form id="searchForm" class="searchForm autocomplete"
+                action="/search/" method="get">
+            <input id="id_q" type="search" name="q"
+                   placeholder="Search Ahmia" value="">
+            <input type="submit" value="Search" style="submitButton">
+          </form>
+        </div>
+      
+      <nav>
+        <ul class="primary">
+          <li>
+            <a href="/about/"
+               title="Learn more about Ahmia and its team.">
+                 About Ahmia
+            </a>
+          </li>
+          <!-- <li><a href="/directory" title="A directory of .onion services.">Directory</a></li> -->
+          <li>
+            <a href="/add/"
+               title="Add a hidden service to our index.">Add Service
+            </a>
+          </li>
+        </ul>
+        <ul class="secondary">
+
+          <li>
+            <a href="/blacklist/"
+               title="Blacklist of banned .onion services.">Blacklist
+            </a>
+          </li>
+          <li>
+            <a href="/legal/">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <div id="ahmiaAboutPage">
+        <h1>Documentation</h1>
+        <div class="moreOnAhmia">
+            <p>
+                The source code of Ahmia is open source and available on Github <a href="//github.com/ahmia">
+                <img src="/static/images/logos/github.png" alt="Github link" class="github_doc"></a>
+            </p>
+            <p>
+                You are free to build your own index and crawler.
+            </p>
+            <p>
+                The source code is mainly divided into three parts:
+            </p>
+            <ul>
+                <li><a href="//github.com/ahmia/ahmia-index">ahmia-index</a><br>Elasticsearch index</li>
+                <li><a href="//github.com/ahmia/ahmia-crawler">ahmia-crawler</a><br>Onion crawler</li>
+                <li><a href="//github.com/ahmia/ahmia-site">ahmia-site</a><br>The search website</li>
+            </ul>
+        </div>
+        <div class="aboutAhmia">
+            <h3>Onion information</h3>
+            <p>
+                All banned onion services: <a href="/banned/">https://ahmia.fi/banned/</a>.
+            </p>
+            <p>
+                All known non-banned onion domains: <a href="/onions/">https://ahmia.fi/onions/</a>
+            </p>
+            <p>
+                For filter requests of onions: <a href="https://ahmia.fi/address/">https://ahmia.fi/address/</a>
+            </p>
+        </div>
+        <div class="aboutAhmia">
+            <h3>For hidden service operators</h3>
+            <p>
+                Add onion domains and sub-domains for indexing: <a href="/add/">  Add</a>
+            </p>
+            <p>
+                Onion service indexing and crawling: <a href="/documentation/indexing/">Indexing</a>
+            </p>
+            <p>
+                Child sexual abuse material blocklist: <a href="/blacklist/">Blocklist</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="warning"
+       style="background-color: black; font-size: 200%; color: red; position: fixed; top: 5%; left: 30%;">
+      A man-in-the-middle fake clone detected! <br/>
+      Warning! <br/>
+      Right onion address starts with juhanurmihxlp77 and ends with 4csyd.onion. <br/>
+      Find real address from ahmia.fi
+    </div>
+  </div>
+</div>
+</body>
+</html>

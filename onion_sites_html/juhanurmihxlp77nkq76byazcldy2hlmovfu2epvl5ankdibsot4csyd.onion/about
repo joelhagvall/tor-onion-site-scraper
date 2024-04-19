@@ -1,0 +1,161 @@
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+    About Us &mdash; Ahmia
+  </title>
+  <meta name="description"
+        content="A search engine for services accessible on the Tor network.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/static/js/jquery.min.js"></script>
+
+  <link title="Ahmia Search" type="application/opensearchdescription+xml" rel="search" href="/static/opensearch_html.xml" />
+  <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/static/css/styles.css">
+
+  <link rel="stylesheet"
+    href="data:text/css;base64,QC1tb3otZG9jdW1lbnQgcmVnZXhwKCcoPyFodHRwcz86Ly9haG1pYVxcLmZpfGh0dHBzPzovL2xvY2FsaG9zdHxodHRwcz86Ly8xMjdcXC4wXFwuMFxcLjF8aHR0cDovL2p1aGFudXJtaS4qY3N5ZFxcLm9uaW9ufGh0dHA6Ly9tc3lkcXN0Lioya3plcmRnXFwub25pb24pLionKXtib2R5OmJlZm9yZXttYXJnaW4tbGVmdDoxMCU7bWFyZ2luLXRvcDoyMCU7bWFyZ2luLXJpZ2h0OjEwJTtjb2xvcjpyZWQ7Zm9udC1zaXplOjIwMCU7Y29udGVudDoiV2FybmluZzogWW91IGFyZSB1c2luZyBhIG1hbi1pbi10aGUtbWlkZGxlIGZha2UgY2xvbmUgc2l0ZSAtLSBWaXNpdCBodHRwczovL2FobWlhLmZpLyB0byBmaW5kIHJpZ2h0IG9uaW9uIGFkZHJlc3MuIjtkaXNwbGF5OmJsb2NrfWE6YmVmb3Jle2NvbG9yOnJlZDtjb250ZW50OiJbU0NBTV0gIn0jYWhtaWFNYWluQ29udGVudCwjaW1hZ2VPdmVybGF5e2Rpc3BsYXk6bm9uZX19I3dhcm5pbmd7ZGlzcGxheTpub25lfQ">
+</head>
+
+<body class="">
+
+
+
+<div class="outer">
+
+  <div id="content" class="inner">
+
+    <div id="ahmiaHeader" class="maxi">
+    <div id="notTorBrowserWarning" style="display:none">
+      <p>
+        Unfortunately we have not deployd non-JavaScript version of Ahmia yet.
+      </p>
+      </div>
+      
+        <div class="maxiContent">
+          <h1><a href="/">Ahmia</a></h1>
+          <form id="searchForm" class="searchForm autocomplete"
+                action="/search/" method="get">
+            <input id="id_q" type="search" name="q"
+                   placeholder="Search Ahmia" value="">
+            <input type="submit" value="Search" style="submitButton">
+          </form>
+        </div>
+      
+      <nav>
+        <ul class="primary">
+          <li>
+            <a href="/about/"
+               title="Learn more about Ahmia and its team.">
+                 About Ahmia
+            </a>
+          </li>
+          <!-- <li><a href="/directory" title="A directory of .onion services.">Directory</a></li> -->
+          <li>
+            <a href="/add/"
+               title="Add a hidden service to our index.">Add Service
+            </a>
+          </li>
+        </ul>
+        <ul class="secondary">
+
+          <li>
+            <a href="/blacklist/"
+               title="Blacklist of banned .onion services.">Blacklist
+            </a>
+          </li>
+          <li>
+            <a href="/legal/">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+  <div id="ahmiaAboutPage">
+      <div class="aboutAhmia">
+        <h2 class="sr">About Ahmia</h2>
+        <p>
+           Ahmia's mission is to create the premier search engine for services
+              residing on the Tor anonymity network. In doing so, we hope to share meaningful
+              statistics, insights, and news about the Tor network and the Tor project.
+          
+        </p>
+        <p>
+           Contributors to Ahmia believe that the Tor network is an important
+              and resilient distributed platform for anonymity and privacy worldwide. By
+              providing a search engine for what many call the "deep web" or "dark net", Ahmia
+              makes onion services accessible to a wide range of people, not just Tor network early
+              adopters.
+          
+        </p>
+        <p>
+
+        </p>
+      </div>
+      <div class="aboutTeam">
+        <h3>Juha Nurmi, Ahmia Project Leader</h3>
+        <img src="/static/images/juha_nurmi.png" alt=" Juha Nurmi " class="teamPhoto">
+        <p>
+          
+          
+              <strong>Juha Nurmi</strong> (
+              <a href="mailto:juha.nurmi@ahmia.fi">juha.nurmi@ahmia.fi</a>) is the founder and
+              project leader of the Ahmia search engine project. He is a security researcher,
+              and has been involved in numerous projects funded by both the commercial and
+              government spheres. Juha is also a noted lecturer and public speaker.
+          
+        </p>
+      </div>
+      <div class="moreOnAhmia">
+        <h3>More on Ahmia</h3>
+        <p>
+           Ahmia is an active area of research, and is in development on
+              GitHub<a href="//github.com/ahmia">
+              <img src="/static/images/logos/github.png" alt="Github link" class="github"></a>
+              as a free and open source project. If you would like to learn more about Ahmia,
+              download our documentation or presentations on the search
+              engine:
+          
+        </p>
+        <ul>
+          <li><a href="/documentation/">Documentation</a></li>
+          <li>
+              <a href="https://blog.torproject.org/blog/tor-heart-ahmia-project">
+                Ahmia and the Tor Ecosystem
+              </a>
+          </li>
+        </ul>
+      </div>
+      <div class="credits">
+        <ul>
+          <li><img src="/static/images/logos/globaleaks.png"
+                   alt=" Globaleaks Platform "></li>
+          <li><img src="/static/images/logos/tor2web.png"
+                   alt=" Tor2Web Platform "></li>
+          <li><img src="/static/images/logos/hermes.png"
+                   alt=" HERMES Center for Transparency and Digital Rights ">
+          </li>
+          <li><img src="/static/images/logos/torproject.png"
+                   alt=" Tor Project "></li>
+        </ul>
+      </div>
+  </div>
+
+
+
+    <div id="warning"
+       style="background-color: black; font-size: 200%; color: red; position: fixed; top: 5%; left: 30%;">
+      A man-in-the-middle fake clone detected! <br/>
+      Warning! <br/>
+      Right onion address starts with juhanurmihxlp77 and ends with 4csyd.onion. <br/>
+      Find real address from ahmia.fi
+    </div>
+  </div>
+</div>
+</body>
+</html>
