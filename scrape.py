@@ -51,18 +51,13 @@ def scrape_site(url, session, base_path):
                 
     return site_successful, "Success" if site_successful else "Failed to fetch some pages"
 
-if __name__ == "__main__":  #Kört till 15e hittils 
+if __name__ == "__main__":  #Kört till 25e hittils 
     urls = [
-        "https://euqrjceb3fa3o2rxjuqqkx76qjreqjlvtidfpgfyv6cd4z22hybnccyd.onion/",
-        "http://2dhhwu7c5u4wdzn3bzqxfmygyqdushy56dnknkfexhze4sot5ljkd.onion/",
-        "http://2dhhwu7c5u4wdzn3bzqxfmygyqdushy56dnknkfexhze4sot5ljkd3yd.onion/",
-        "http://wzxwaen2zhuouiirspgpaw7hjvIzini5bfmopb6e45mkj5exbzzossad.onion/viewtopic.php?t=10&sid=7ab461c47bbc12467e55093036839f70.onion",
-        "http://wzxwaen2zhuouirspgpaw7hjvlzini5bfmopb6e45mkj5exbzzossad.onion/viewtopic.php?t=204",
-        "http://alphvmmm2703abo3r2mImjrpdmzle3rykajqc5xsj7j7ejksbpsa36ad.onion/",
-        "http://spywrfsmz6h66kcl56jl73s6uqimxu6oo3hym7zrf5myznol4qwwgoid.onion/",
-        "http://pinr7nwvdaehemcrpgcjqf4fooit3c4gjw6dhzrp443ctvnoad.onion",
-        "http://hackingbr3v6yj5pci6im57ud52vqfygg4swvbj7vmqgfncqpwaul3qd.onion/",
-        "http://cus43oder3dcj5whshor5kbprvj6fjciupurb5v5vamzjapiruy3coid.onion/"
+        "http://zkj7mzglnrbvu3elepazau7ol26cmq7acryvsqxvh4sreoydhzin7zid.onion/",
+        "http://7aschni7etmvjoknufq6qojt66wnavuiqlu33wqujsaaafnnghjszead.onion/index.html",
+        "http://dna777is7kr46zcsvv7mefmpqwm67irdgyuu5kda2islo4fzk7p44ad.onion/threads/✨-new-jigsaw-ransomware-builder-✨.121/",
+        "https://cactusbloguuodvajmnz/wetj|pj6aggc6iocwhuupb47laukux7ckid.onion",
+
     ]
 
     session = requests.session()
