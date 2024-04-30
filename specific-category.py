@@ -62,7 +62,7 @@ def scrape_category_site(base_url, category, session, base_path):
 
 if __name__ == "__main__":  
     base_url = "http://ddockkkwl45kmnnd7b332qu4h3ov66e3zy2ytrpfarpswvtldcx3cvad.onion"
-    category = "0day"
+    category = "bootkits"
 
     session = requests.session()
     session.proxies = {'http': 'socks5h://localhost:9050', 'https': 'socks5h://localhost:9050'}
