@@ -18,15 +18,13 @@ def save_html(content, path):
         file.write(content)
     print(f"Saved HTML content to {path}")
 
-def is_valid_link(url, domain, category_path):
-    return urlparse(url).netloc == domain and category_path in urlparse(url).path
+def is_valid_link(url, domain):
+    return urlparse(url).netloc == domain
 
-def scrape_category_site(base_url, category, session, base_path):
-    category_url = f"{base_url}/category/{category}"
-    domain = urlparse(category_url).netloc
-    category_path = f"/category/{category}"
+def scrape_site(url, session, base_path, disallowed_categories):
+    domain = urlparse(url).netloc
     visited = set()
-    to_visit = [category_url]
+    to_visit = [url]
     site_successful = True
 
     while to_visit:
@@ -35,42 +33,52 @@ def scrape_category_site(base_url, category, session, base_path):
             continue
         visited.add(current_url)
 
+        # Skip the category pages that are disallowed
+        if any(disallowed_category in current_url for disallowed_category in disallowed_categories):
+            print(f"Skipped scraping {current_url} due to disallowed category.")
+            continue
+
         html_content = fetch_onion_site_html(current_url, session)
         if html_content is None:
             site_successful = False
-            continue
+            continue  # Skip saving and further processing if fetching failed
 
         # Save the current page
         page_filename = os.path.join(base_path, urlparse(current_url).path.strip('/').replace('/', '_') or 'index.html')
         save_html(html_content, page_filename)
 
+        # Parse the page to find links
         soup = BeautifulSoup(html_content, 'html.parser')
-
-        # Parse the page to find links and handle "View" divs for product pages
         for link in soup.find_all('a', href=True):
             full_link = urljoin(current_url, link['href'])
-            if 'product' in full_link and full_link not in visited:
-                product_html = fetch_onion_site_html(full_link, session)
-                if product_html:
-                    product_filename = os.path.join(base_path, urlparse(full_link).path.strip('/').replace('/', '_') + '.html')
-                    save_html(product_html, product_filename)
-                visited.add(full_link)
-            elif is_valid_link(full_link, domain, category_path) and full_link not in visited:
+            if is_valid_link(full_link, domain) and full_link not in visited:
                 to_visit.append(full_link)
-
+                
     return site_successful, "Success" if site_successful else "Failed to fetch some pages"
 
 if __name__ == "__main__":  
     base_url = "http://ddockkkwl45kmnnd7b332qu4h3ov66e3zy2ytrpfarpswvtldcx3cvad.onion"
-    category = "malware"
+    categories = [
+        "drugs", "benzos", "ecstasy", "opiods", "psychedelics", "cannabis",
+        "stimulants", "dissociatives", "steroids", "prescription", "common raw drugs",
+        "default", "rcs china suppliers", "drugs precursors", "weight scale", "drugs paraphernalia", "physical drop"
+    ]
+    disallowed_categories = [f"{base_url}/category/{category}" for category in categories]
 
     session = requests.session()
+    # You must have Tor running with the configuration for bridges set up
     session.proxies = {'http': 'socks5h://localhost:9050', 'https': 'socks5h://localhost:9050'}
 
-    base_directory = f"onion_sites_html/{urlparse(base_url).netloc}/{category}"
+    results = {}
+    # Base directory and initial URL
+    base_directory = f"onion_sites_html/{urlparse(base_url).netloc}"
     if not os.path.exists(base_directory):
         os.makedirs(base_directory)
 
-    success, message = scrape_category_site(base_url, category, session, base_directory)
-    status = "✅" if success else "❌"
-    print(f"Final status of category '{category}': {status}")
+    success, message = scrape_site(base_url, session, base_directory, disallowed_categories)
+    results[base_url] = "✅" if success else "❌"
+
+    # Print summary of all URLs processed
+    print("\nFinal status of all URLs:")
+    for url, status in results.items():
+        print(f"{url}: {status}")
