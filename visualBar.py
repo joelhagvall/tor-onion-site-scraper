@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Step 1: Load the CSV file
-df = pd.read_csv("results/2. tutorials.csv")
+df = pd.read_csv("results/merged-csv.csv")
 
 
 # Step 2: Define the keywords
