@@ -2,10 +2,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Step 1: Load the CSV file
-df = pd.read_csv('civil_softwares.csv')
+df = pd.read_csv("results/2. tutorials.csv")
+
 
 # Step 2: Define the keywords
-keywords = ['carding', 'ransomware', 'rat', 'database', 'leak']
+keywords = ['malware']
 
 # Step 3: Initialize a dictionary to store counts
 keyword_counts = {key: 0 for key in keywords}
