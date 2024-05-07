@@ -34,24 +34,22 @@ def scrape_limited_pages(base_url, session, max_pages):
             title = item.find('div', class_='title').text.strip() if item.find('div', class_='title') else 'No Title'
             description = item.find('div', class_='description').text.strip() if item.find('div', class_='description') else 'No Description'
             unique_key = f"{title}|{description}"  # Create a unique key for each item
-
             if unique_key not in unique_items:
                 unique_items[unique_key] = [title, description]
-
+        print(f"Page {page_number} scraped successfully.")
         page_number += 1
-
     return list(unique_items.values())  # Convert the dictionary values to a list
 
 if __name__ == "__main__":
-    base_url = "http://ddockkkwl45kmnnd7b332qu4h3ov66e3zy2ytrpfarpswvtldcx3cvad.onion/category/leaked_documents/"
+    base_url = "http://ddockkkwl45kmnnd7b332qu4h3ov66e3zy2ytrpfarpswvtldcx3cvad.onion/category/utilities"
     session = requests.session()
     session.proxies = {'http': 'socks5h://localhost:9050', 'https': 'socks5h://localhost:9050'}
-    
-    max_pages = 2  # Maximum number of pages to scrape
+
+    max_pages = 3  # Maximum number of pages to scrape
     items = scrape_limited_pages(base_url, session, max_pages)
-    
+
     # Save extracted data to CSV
-    with open('resultsFullLeaked_Documents.csv', 'w', newline='', encoding='utf-8') as file:
+    with open('resultsFullDigital-utilities.csv', 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(['Title', 'Description'])
         writer.writerows(items)
