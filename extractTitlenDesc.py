@@ -41,15 +41,15 @@ def scrape_limited_pages(base_url, session, max_pages):
     return list(unique_items.values())  # Convert the dictionary values to a list
 
 if __name__ == "__main__":
-    base_url = "http://ddockkkwl45kmnnd7b332qu4h3ov66e3zy2ytrpfarpswvtldcx3cvad.onion/category/utilities"
+    base_url = "http://ddockkkwl45kmnnd7b332qu4h3ov66e3zy2ytrpfarpswvtldcx3cvad.onion/category/tutorials"
     session = requests.session()
     session.proxies = {'http': 'socks5h://localhost:9050', 'https': 'socks5h://localhost:9050'}
 
-    max_pages = 3  # Maximum number of pages to scrape
+    max_pages = 186  # Maximum number of pages to scrape
     items = scrape_limited_pages(base_url, session, max_pages)
 
     # Save extracted data to CSV
-    with open('resultsFullDigital-utilities.csv', 'w', newline='', encoding='utf-8') as file:
+    with open('resultsFalseDocuments.csv', 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(['Title', 'Description'])
         writer.writerows(items)
