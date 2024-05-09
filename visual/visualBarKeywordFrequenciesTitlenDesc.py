@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 df = pd.read_csv("merged_data.csv")
 
 # Step 2: Define the keywords
-keywords = ['tutorials']
+keywords = ['guides']
 
 # Step 3: Initialize dictionaries to store counts for title and description
 title_keyword_counts = {key: 0 for key in keywords}
