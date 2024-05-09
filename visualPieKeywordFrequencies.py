@@ -2,10 +2,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Step 1: Load the CSV file
-df = pd.read_csv('civil_softwares.csv')
+df = pd.read_csv('results/merged-csv.csv')
 
 # Step 2: Define the keywords
-keywords = ['malware', 'rat', 'keylogger']
+keywords = ['malware', 'leaks', 'data leaks', 'database', 'credit card', 'carding', 'password',
+            'account', 'malware', 'ransomware', 'phishing', 'hacking', 'ddos', 'virus', 'course', 'worms']
 
 # Step 3: Initialize a dictionary to store counts
 keyword_counts = {key: 0 for key in keywords}

@@ -2,11 +2,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Step 1: Load the CSV file
-df = pd.read_csv("results/merged-csv.csv")
+df = pd.read_csv("merged_data.csv")
 
 
 # Step 2: Define the keywords
-keywords = ['malware','leaks','data leaks','database','credit card','carding','password','account', 'malware', 'ransomware', 'phishing', 'hacking', 'ddos', 'virus', 'course', 'worms']
+keywords = ['malware', 'trojan', 'ransomware', 'spyware', 'keylogger']
 
 # Step 3: Initialize a dictionary to store counts
 keyword_counts = {key: 0 for key in keywords}
@@ -14,7 +14,7 @@ keyword_counts = {key: 0 for key in keywords}
 # Step 4: Count the occurrences in the title
 for keyword in keywords:
     # case insensitive searching
-    keyword_counts[keyword] += df['Title'].str.contains(keyword, case=False, na=False).sum()
+    keyword_counts[keyword] += df['Description'].str.contains(keyword, case=False, na=False).sum()
 
 # Step 5: Convert the counts to a DataFrame for easier handling
 keyword_df = pd.DataFrame(list(keyword_counts.items()), columns=['Keyword', 'Count'])
