@@ -1,12 +1,9 @@
 import matplotlib.pyplot as plt
 
 # Define the data
-categories = ['Malware', 'Phishing', 'Hacking', 'Course']
+categories = ['DDoS']
 keyword_counts = [
-    {'Malware': 353},
-    {'Phishing': 295},
-    {'Hacking': 352},
-    {'Course': 2086}
+    {'DDoS': 39}
 ]
 
 # Extracting keywords and frequencies
@@ -24,7 +21,7 @@ bars = plt.bar(categories, frequencies, color=['red', 'blue', 'green', 'orange']
 # Add labels and title
 plt.xlabel('Categories')
 plt.ylabel('Counts')
-plt.title('Number of Mentions in Access Crime')
+plt.title('Number of Mentions in Network Crime')
 
 # Add count annotations
 for i, rect in enumerate(bars):
