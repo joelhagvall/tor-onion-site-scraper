@@ -1,18 +1,16 @@
 # Tor Onion Site Scraper
 
-This repository contains a Python-based scraper tool for fetching and saving content from .onion sites accessible via the Tor network. Developed by Joel Hägvall and Giancarlo Valverde, this scraper is designed to navigate through multiple pages of each .onion site and store the HTML content in an organized manner, respecting the structure and navigation of the sites.
+This repository hosts a Python-based scraper tailored to fetch titles and descriptions from .onion sites accessible via the Tor network. The scraper is developed by Joel Hägvall and Giancarlo Valverde.
 
 ## Features
 
-- Fetch HTML content of .onion websites using Tor as a proxy.
-- Navigate and download multiple pages from each site.
-- Save each page in a separate directory corresponding to its .onion site.
-- Handle pagination and internal site links automatically.
-- Maintain privacy and anonymity features provided by the Tor network.
+- Retrieves titles and descriptions from .onion websites using Tor as a proxy.
+- Saves the extracted data in a CSV file.
+- Maintains privacy and anonymity features provided by the Tor network.
 
 ## Prerequisites
 
-Before you start using this scraper, you need to have the following installed on your system:
+Before utilizing this scraper, ensure the following dependencies are installed on your system:
 - Python 3.6 or higher
 - Tor Browser or Tor service running in the background
 - Required Python libraries: `requests`, `pysocks`, `beautifulsoup4`
@@ -21,30 +19,37 @@ Before you start using this scraper, you need to have the following installed on
 
 1. **Clone the Repository**
 
-git clone https://github.com/yourusername/tor-onion-scraper.git
-cd tor-onion-scraper
-
+    ```bash
+    git clone https://github.com/yourusername/tor-onion-scraper.git
+    cd tor-onion-scraper
+    ```
 
 2. **Install Dependencies**
-pip install -r requirements.txt
 
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 3. **Ensure Tor is Running**
-- Make sure Tor is active in the background. If using Tor Browser, keep it open while the scraper runs.
+
+    - Keep Tor active in the background. If using Tor Browser, keep it open while the scraper runs.
 
 ## Usage
 
 To start scraping .onion sites:
 
-1. **Edit the `urls` list in `scraper.py`**
-- Add the .onion URLs you intend to scrape to the list.
+1. **Edit the `base_url` in `scraper.py`**
+    - Set the `base_url` variable to the .onion URL you intend to scrape.
 
 2. **Run the Scraper**
-python scraper.py
 
+    ```bash
+    python scraper.py
+    ```
 
 3. **Check Output**
-- Navigate to the `onion_sites_html` directory to see the downloaded HTML files organized by site.
+
+    - Upon completion, the scraper will generate a CSV file containing titles and descriptions from the specified .onion site.
 
 ## Contributing
 
@@ -61,4 +66,5 @@ python scraper.py
 
 ## Acknowledgments
 
+We extend our gratitude to the contributors and the Tor Project for their invaluable support.
 
