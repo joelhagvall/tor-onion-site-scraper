@@ -1,38 +1,41 @@
 import matplotlib.pyplot as plt
 
-# Data
-categories = ['Access Crime', 'Data Crime', 'Network Crime']
-access_crime_subcategories = ['Malware', 'Phishing', 'Hacking', 'Course']
-data_crime_subcategories = ['Leaks', 'Database', 'Credit Card', 'Account']
-network_crime_subcategories = ['DDoS']
-
-access_crime_keywords = [
-    'Malware', 'trojan', 'ransomware', 'RAT', 'keylogger', 'spyware', 'worm',
-    'Phishing', 'social engineering', 'fraud',
-    'Hacking', 'exploit', 'vulnerability', 'penetration testing',
-    'Tutorial', 'guide', 'ebook'
+# Define the data
+categories = ['Malware', 'Phishing', 'Hacking', 'Course']
+keyword_counts = [
+    {'Malware': 353},
+    {'Phishing': 295},
+    {'Hacking': 352},
+    {'Course': 2086}
 ]
 
-data_crime_keywords = [
-    'Leak', 'data leak', 'breach', 'dump',
-    'Database', 'SQL injection', 'MySQL', 'Oracle',
-    'Credit card', 'CVV', 'carding', 'carder', 'BIN',
-    'Account', 'login', 'username', 'email', 'credential', 'password', 'hash', 'cracking', 'brute force'
-]
+# Extracting keywords and frequencies
+keywords = []
+frequencies = []
+for item in keyword_counts:
+    keyword, frequency = list(item.items())[0]
+    keywords.append(keyword)
+    frequencies.append(frequency)
 
-network_crime_keywords = [
-    'DDoS', 'botnet', 'stresser', 'denial of service', 'booter'
-]
+# Create bar plot
+plt.figure(figsize=(10, 6))
+bars = plt.bar(categories, frequencies, color=['red', 'blue', 'green', 'orange'])
 
-frequency = [353, 295, 352, 2086, 180, 234, 985, 1121, 39]
+# Add labels and title
+plt.xlabel('Categories')
+plt.ylabel('Counts')
+plt.title('Number of Mentions in Different Categories')
 
-# Plotting
-plt.figure(figsize=(10, 8))
-plt.pie(frequency, labels=access_crime_subcategories + data_crime_subcategories + network_crime_subcategories, autopct='%1.1f%%', startangle=140)
-plt.title('Crime Category Pie Chart')
-plt.axis('equal')
+# Add count annotations
+for i, rect in enumerate(bars):
+    height = rect.get_height()
+    plt.annotate('{}'.format(height),
+                 xy=(rect.get_x() + rect.get_width() / 2, height),
+                 xytext=(0, 3),  # 3 points vertical offset
+                 textcoords="offset points",
+                 ha='center', va='bottom')
 
-# Add legend
-plt.legend(categories, loc="upper right")
-
+# Show plot
+plt.xticks(rotation=45)
+plt.tight_layout()
 plt.show()
