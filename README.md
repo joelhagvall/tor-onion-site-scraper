@@ -1,21 +1,21 @@
-# Tor Onion Site Scraper
+# Tor Onion Site Scraper 
 
 This repository hosts a Python-based scraper tailored to fetch titles and descriptions from .onion sites accessible via the Tor network. The scraper is developed by Joel Hägvall and Giancarlo Valverde.
 
-## Features
+## 📝 Features
 
 - Retrieves titles and descriptions from .onion websites using Tor as a proxy.
 - Saves the extracted data in a CSV file.
 - Maintains privacy and anonymity features provided by the Tor network.
 
-## Prerequisites
+## 📦 Prerequisites
 
 Before utilizing this scraper, ensure the following dependencies are installed on your system:
 - Python 3.6 or higher
 - Tor Browser or Tor service running in the background
 - Required Python libraries: `requests`, `pysocks`, `beautifulsoup4`
 
-## Installation
+## 🛠️ Installation
 
 1. **Clone the Repository**
 
@@ -34,7 +34,7 @@ Before utilizing this scraper, ensure the following dependencies are installed o
 
     - Keep Tor active in the background. If using Tor Browser, keep it open while the scraper runs.
 
-## Usage
+## 🚀 Usage
 
 To start scraping .onion sites:
 
@@ -66,5 +66,4 @@ To start scraping .onion sites:
 
 ## Acknowledgments
 
-We extend our gratitude to the contributors and the Tor Project for their invaluable support.
 
