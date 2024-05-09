@@ -3,7 +3,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
 # Read CSV file
-df = pd.read_csv('results/1. civil_softwares.csv')
+df = pd.read_csv('merged_data.csv')
 
 # Concatenate text data
 text = ' '.join(df['Title'])  # Change 'column1' to your desired column name
