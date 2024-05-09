@@ -24,7 +24,7 @@ bars = plt.bar(categories, frequencies, color=['red', 'blue', 'green', 'orange']
 # Add labels and title
 plt.xlabel('Categories')
 plt.ylabel('Counts')
-plt.title('Number of Mentions in Different Categories')
+plt.title('Number of Mentions in Access Crime')
 
 # Add count annotations
 for i, rect in enumerate(bars):
