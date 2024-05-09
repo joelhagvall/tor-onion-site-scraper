@@ -5,7 +5,14 @@ import matplotlib.pyplot as plt
 df = pd.read_csv("merged_data.csv")
 
 # Step 2: Define the keywords
-keywords = ['tutorials']
+keywords = ['tutorial']
+
+# Function to search for both singular and plural forms of a keyword
+def search_keyword(keyword, column):
+    count_singular = df[column].str.contains(keyword, case=False, na=False).sum()
+    plural_keyword = keyword + 's'
+    count_plural = df[column].str.contains(plural_keyword, case=False, na=False).sum()
+    return count_singular + count_plural
 
 # Step 3: Initialize dictionaries to store counts for title and description
 title_keyword_counts = {key: 0 for key in keywords}
@@ -13,13 +20,11 @@ description_keyword_counts = {key: 0 for key in keywords}
 
 # Step 4: Count the occurrences in the title
 for keyword in keywords:
-    # Case insensitive searching
-    title_keyword_counts[keyword] += df['Title'].str.contains(keyword, case=False, na=False).sum()
+    title_keyword_counts[keyword] = search_keyword(keyword, 'Title')
 
 # Step 5: Count the occurrences in the description
 for keyword in keywords:
-    # Case insensitive searching
-    description_keyword_counts[keyword] += df['Description'].str.contains(keyword, case=False, na=False).sum()
+    description_keyword_counts[keyword] = search_keyword(keyword, 'Description')
 
 # Step 6: Convert the counts to DataFrames for easier handling
 title_keyword_df = pd.DataFrame(list(title_keyword_counts.items()), columns=['Keyword', 'Title_Count'])
