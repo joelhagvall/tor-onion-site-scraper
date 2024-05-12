@@ -14,6 +14,9 @@ if __name__ == "__main__":
         "http://ddockkkwl45kmnnd7b332qu4h3ov66e3zy2ytrpfarpswvtldcx3cvad.onion/",
 
     ]
+    """ urls = [
+        "http://oirolrkrppy6sei6x6bvkkdolc4cjqzqfhxisfzu6exqblahwrrvktyd.onion/"
+    ] """
 
     session = requests.session()
     session.proxies = {'http': 'socks5h://localhost:9050', 'https': 'socks5h://localhost:9050'}
