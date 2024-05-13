@@ -29,8 +29,11 @@ if __name__ == "__main__":
     directory = "./new_onion_sites_html/software_forensics_tools/"
     items = extract_from_html_files(directory)
 
-    # Save extracted data to CSV
-    with open('software_forensics_tools.csv', 'w', newline='', encoding='utf-8') as file:
+    # Save extracted data to CSV in the "results" directory
+    results_directory = "./results/"
+    os.makedirs(results_directory, exist_ok=True)  # Create the directory if it doesn't exist
+    csv_filepath = os.path.join(results_directory, 'software_forensics_tools.csv')
+    with open(csv_filepath, 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(['Title', 'Description'])
         writer.writerows(items)
