@@ -8,9 +8,12 @@ def extract_from_html_files(directory):
     # Iterate through all files in the directory
     for filename in os.listdir(directory):
         if filename == "1_category_drugs_production.html":
-            continue  # Skip this file
-        if filename.endswith(".html"):
-            filepath = os.path.join(directory, filename)
+            continue  # Skip the specified file
+        if "category" not in filename:
+            continue  # Skip files that don't contain "category" in their names
+        
+        filepath = os.path.join(directory, filename)
+        if os.path.isfile(filepath):  # Check if it's a file
             with open(filepath, "r", encoding="utf-8") as file:
                 html_content = file.read()
                 soup = BeautifulSoup(html_content, 'html.parser')
@@ -26,13 +29,15 @@ def extract_from_html_files(directory):
     return list(unique_items.values())  # Convert the dictionary values to a list
 
 if __name__ == "__main__":
-    directory = "./new_onion_sites_html/software_forensics_tools/"
+    category = "civil_softwares"  # Define the category name
+    directory = f"./new_onion_sites_html/{category}/"  # Use f-string to make the category name dynamic
     items = extract_from_html_files(directory)
 
-    # Save extracted data to CSV in the "results" directory
-    results_directory = "./results/"
+    # Save extracted data to CSV in the "resultsHTML" directory
+    results_directory = "./resultsHTML/"
     os.makedirs(results_directory, exist_ok=True)  # Create the directory if it doesn't exist
-    csv_filepath = os.path.join(results_directory, 'software_forensics_tools.csv')
+    
+    csv_filepath = os.path.join(results_directory, f"{category}.csv")  # Use f-string to make the CSV filename dynamic
     with open(csv_filepath, 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(['Title', 'Description'])
