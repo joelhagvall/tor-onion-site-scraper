@@ -87,7 +87,7 @@ def scrape_category_site(base_url, category, session, base_path):
 
 if __name__ == "__main__":  
     base_url = "http://oirolrkrppy6sei6x6bvkkdolc4cjqzqfhxisfzu6exqblahwrrvktyd.onion"
-    category = "software_forensics_tools"
+    category = "digital_forensics"
 
     session = requests.session()
     session.proxies = {'http': 'socks5h://localhost:9050', 'https': 'socks5h://localhost:9050'}

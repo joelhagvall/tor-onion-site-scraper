@@ -37,7 +37,7 @@ if __name__ == "__main__":
     items = extract_from_html_files(directory)
 
     # Save extracted data to CSV in the "results" directory
-    results_directory = "./productResultsHTML/"
+    results_directory = "./resultsHTML/"
     os.makedirs(results_directory, exist_ok=True)  # Create the directory if it doesn't exist
     csv_filepath = os.path.join(results_directory, f"{category}.csv")  # Use f-string to make the CSV filename dynamic
     with open(csv_filepath, 'w', newline='', encoding='utf-8') as file:

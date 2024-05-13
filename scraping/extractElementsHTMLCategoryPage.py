@@ -29,7 +29,7 @@ def extract_from_html_files(directory):
     return list(unique_items.values())  # Convert the dictionary values to a list
 
 if __name__ == "__main__":
-    category = "civil_softwares"  # Define the category name
+    category = "digital_forensics"  # Define the category name
     directory = f"./new_onion_sites_html/{category}/"  # Use f-string to make the category name dynamic
     items = extract_from_html_files(directory)
 
