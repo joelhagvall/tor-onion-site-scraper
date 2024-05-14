@@ -1,19 +1,20 @@
 # Tor Onion Site Scraper 
 
-This repository hosts a Python-based scraper tailored to fetch titles and descriptions from .onion sites accessible via the Tor network. The scraper is developed by Joel Hägvall and Giancarlo Valverde.
+This repository hosts a Python-based scraper developed to retrieve HTML files based on URLs accessible via the Tor network. The scraper is developed by Joel Hägvall and Giancarlo Valverde.
 
 ## 📝 Features
 
-- Retrieves titles and descriptions from .onion websites using Tor as a proxy.
+- Saves HTML data based on URL, using Tor as a proxy.
+- Retrieves titles and descriptions from the HTML files located in a specified directory.
 - Saves the extracted data in a CSV file.
-- Maintains privacy and anonymity features provided by the Tor network.
+- Plot occurrences of keywords.
 
 ## 📦 Prerequisites
 
 Before utilizing this scraper, ensure the following dependencies are installed on your system:
 - Python 3.6 or higher
 - Tor Browser or Tor service running in the background
-- Required Python libraries: `requests`, `pysocks`, `beautifulsoup4`
+- Required Python libraries: `requests`, `pysocks`, `beautifulsoup4`, `pandas`, `matplotlib`
 
 ## 🛠️ Installation
 
@@ -46,7 +47,13 @@ To start scraping .onion sites:
 
 3. **Check Output**
 
-    - Upon completion, the scraper will generate a CSV file containing titles and descriptions from the specified category, along with a directory name based on the category.
+    - Upon completion, the scraper will generate a CSV file containing titles and descriptions from the specified category, along with a directory name based on the category. Repeat this step for all categories that you want to scrape.
+
+4. **Merge CSVs**
+    - Given all CSV-files created, execute the `mergeCsv.py` file and a `merged_data.csv` will be created that is now the final dataset.
+  
+5. **Plotting**
+   - Located in the `visual` folder, edit the `visualBarKeywordFreq.py` script and paste relevant keywords. Execute the script and the bar plot will show. The `visualPieKeywordFreq.py` works similar but returns a pie chart instead.
 
 ## Contributing
 
