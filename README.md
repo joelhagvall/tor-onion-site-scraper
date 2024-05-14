@@ -35,18 +35,18 @@ Before utilizing this scraper, ensure the following dependencies are installed o
 
 To start scraping .onion sites:
 
-1. **Edit the `base_url` in `scraper.py`**
-    - Set the `base_url` variable to the .onion URL you intend to scrape.
+1. **Edit the `category` variable in `scrapeCategorySiteHTML.py`**
+    - Set the `category` variable to the category you intend to scrape, our categories are provided in the `categoriesAndLinks.txt`.
 
 2. **Run the Scraper**
 
     ```bash
-    python scraper.py
+    python scrapeCategorySiteHTML.py
     ```
 
 3. **Check Output**
 
-    - Upon completion, the scraper will generate a CSV file containing titles and descriptions from the specified .onion site.
+    - Upon completion, the scraper will generate a CSV file containing titles and descriptions from the specified category, along with a directory name based on the category.
 
 ## Contributing
 
