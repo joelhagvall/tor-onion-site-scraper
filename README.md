@@ -53,7 +53,7 @@ To start scraping .onion sites:
     - Given all CSV-files created, execute the `mergeCsv.py` file and a `merged_data.csv` will be created that is now the final dataset.
   
 5. **Plotting**
-   - Located in the `visual` folder, edit the `visualBarKeywordFreq.py` script and paste relevant keywords. Execute the script and the bar plot will show. The `visualPieKeywordFreq.py` works similar but returns a pie chart instead.
+   - Located in the `visual` folder, edit the `visualBarKeywordFreq.py` script and paste relevant keywords. Execute the script and the bar plot will show how many times the keywords occurred within the data set, both in titles, descriptions and in total. The `visualPieKeywordFreq.py` works similar but returns a pie chart instead.
 
 ## Contributing
 
