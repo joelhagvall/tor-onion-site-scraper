@@ -36,7 +36,7 @@ Before utilizing this scraper, ensure the following dependencies are installed o
 
 To start scraping .onion sites:
 
-1. **Edit the `category` variable in `scrapeCategorySiteHTML.py` located in the `scraping` folder **
+1. **Edit the `category` variable in `scrapeCategorySiteHTML.py` located in the `scraping` folder.**
     - Set the `category` variable to the category you intend to scrape - our categories are provided in the `categoriesAndLinks.txt` file.
 
 2. **Run the Scraper**
