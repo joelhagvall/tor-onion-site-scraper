@@ -26,9 +26,6 @@ Before utilizing this scraper, ensure the following dependencies are installed o
 
 2. **Install Dependencies**
 
-    ```bash
-    pip install -r requirements.txt
-    ```
 
 3. **Ensure Tor is Running**
 
