@@ -1,4 +1,6 @@
-This text-file contains all the links we have used in our collection of data.
+This text-file contains all the links we have used in our collection of data, as well as chosen categories.
+
+Note: if a category contains two words, it has a "_" between them, such as Civil Softwares = civil_softwares.
 
 # DARKDOCK HOMEPAGE:
 http://oirolrkrppy6sei6x6bvkkdolc4cjqzqfhxisfzu6exqblahwrrvktyd.onion/

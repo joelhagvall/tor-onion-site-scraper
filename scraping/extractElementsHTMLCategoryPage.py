@@ -7,29 +7,34 @@ def extract_from_html_files(directory):
     
     # Iterate through all files in the directory
     for filename in os.listdir(directory):
-        if filename == "1_category_drugs_production.html":
-            continue  # Skip the specified file
-        if "category" not in filename:
-            continue  # Skip files that don't contain "category" in their names
-        
-        filepath = os.path.join(directory, filename)
-        if os.path.isfile(filepath):  # Check if it's a file
+        if filename != "1_category_drugs_production.html":
+            if "category" in filename:
+                pass
+            else:
+                continue  # Skip files that don't contain "category" in their names
+
+            filepath = os.path.join(directory, filename)
+            if not os.path.isfile(filepath):  # Check if it's a file
+                continue
             with open(filepath, "r", encoding="utf-8") as file:
                 html_content = file.read()
                 soup = BeautifulSoup(html_content, 'html.parser')
 
                 # Extract title and description from each item on the page
                 for item in soup.find_all('div', class_='item'):
-                    title = item.find('div', class_='title').text.strip() if item.find('div', class_='title') else 'No Title'
-                    description = item.find('div', class_='description').text.strip() if item.find('div', class_='description') else 'No Description'
+                    title = item.find('div', class_='title').text.strip() if item.find('div',
+                                                                                       class_='title') else 'No Title'
+                    description = item.find('div', class_='description').text.strip() if item.find('div',
+                                                                                                   class_='description') else 'No Description'
                     unique_key = f"{title}|{description}"  # Create a unique key for each item
-                    if unique_key not in unique_items:
-                        unique_items[unique_key] = [title, description]
-    
+                    if unique_key in unique_items:
+                        continue
+                    unique_items[unique_key] = [title, description]
+
     return list(unique_items.values())  # Convert the dictionary values to a list
 
 if __name__ == "__main__":
-    category = "digital_forensics"  # Define the category name
+    category = "civil_softwares"  # Define the category name
     directory = f"./new_onion_sites_html/{category}/"  # Use f-string to make the category name dynamic
     items = extract_from_html_files(directory)
 

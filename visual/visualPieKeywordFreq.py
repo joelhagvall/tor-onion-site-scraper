@@ -25,12 +25,9 @@ print(keyword_df)
 
 # Step 7: Plot the data as a pie chart
 plt.figure(figsize=(8, 8))  # Set the figure size
-plt.pie(keyword_df['Count'], labels=keyword_df['Keyword'], 
-        autopct=lambda p: '{:.1f}%\n({:.0f})'.format(p, (p/100)*keyword_df['Count'].sum()), startangle=140)
+plt.pie(keyword_df['Count'], labels=keyword_df['Keyword'],
+        autopct=lambda p: '{:.1f}%\n({:.0f})'.format(p, (p / 100) * keyword_df['Count'].sum()), startangle=140)
 plt.title('Keyword Frequency in Listings')
 plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-
-# Save the figure
-plt.savefig('keyword_frequency_pie_chart.png')
 
 plt.show()

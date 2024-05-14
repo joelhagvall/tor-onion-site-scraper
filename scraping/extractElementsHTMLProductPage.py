@@ -7,15 +7,15 @@ def extract_from_html_files(directory):
     
     # Iterate through all files in the directory
     for filename in os.listdir(directory):
-        if "1_category_drugs_production" in filename:
-            continue  # Skip the specified file
-        if "category" in filename:
-            continue  # Skip files that contain "category" in their names
-        if "product" not in filename:
-            continue  # Skip files that don't contain "product" in their names
-        
-        filepath = os.path.join(directory, filename)
-        if os.path.isfile(filepath):  # Check if it's a file
+        if "1_category_drugs_production" not in filename:
+            if "category" in filename:
+                continue  # Skip files that contain "category" in their names
+            if "product" not in filename:
+                continue  # Skip files that don't contain "product" in their names
+
+            filepath = os.path.join(directory, filename)
+            if not os.path.isfile(filepath):  # Check if it's a file
+                continue
             with open(filepath, "r", encoding="utf-8") as file:
                 html_content = file.read()
                 soup = BeautifulSoup(html_content, 'html.parser')
@@ -23,16 +23,17 @@ def extract_from_html_files(directory):
                 # Extract title and description if they are found only once per file
                 title_content = soup.find('div', class_='title')
                 description_content = soup.find('div', class_='description')
-                
-                if title_content and description_content:
-                    title_text = title_content.text.strip()
-                    description_text = description_content.text.strip()
-                    unique_items.append([title_text, description_text])
-    
+
+                if not title_content or not description_content:
+                    continue
+                title_text = title_content.text.strip()
+                description_text = description_content.text.strip()
+                unique_items.append([title_text, description_text])
+
     return unique_items
 
 if __name__ == "__main__":
-    category = "accounts"  # Define the category name
+    category = "civil_softwares"  # Define the category name
     directory = f"./new_onion_sites_html/{category}/"  # Use f-string to make the category name dynamic
     items = extract_from_html_files(directory)
 
