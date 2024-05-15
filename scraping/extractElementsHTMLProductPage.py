@@ -20,15 +20,26 @@ def extract_from_html_files(directory):
                 html_content = file.read()
                 soup = BeautifulSoup(html_content, 'html.parser')
 
-                # Extract title and description if they are found only once per file
-                title_content = soup.find('div', class_='title')
-                description_content = soup.find('div', class_='description')
+                # Extract the first and second occurrence of div class 'heading'
+                headings = soup.find_all('div', class_='heading', limit=2)
+                heading_text = headings[0].text.strip() if len(headings) > 0 else ''
+                comment_text = headings[1].text.strip() if len(headings) > 1 else ''
 
-                if not title_content or not description_content:
-                    continue
-                title_text = title_content.text.strip()
-                description_text = description_content.text.strip()
-                unique_items.append([title_text, description_text])
+                tab1_content = soup.find('div', class_='tab1')
+                tab2_content = soup.find('div', class_='tab2')
+                price_content = soup.find('div', class_ = 'price')
+                stats_content = soup.find('div', class_ = 'stats')
+                
+                # Extract the comment information
+                comment_info = soup.find('div', class_='comments')
+                comment_info_text = comment_info.text.strip() if comment_info else ''
+
+                if tab1_content and tab2_content and price_content and stats_content:
+                    tab1_text = tab1_content.text.strip()
+                    tab2_text = tab2_content.text.strip()
+                    price_text = price_content.text.strip()
+                    stats_text = stats_content.text.strip()
+                    unique_items.append([heading_text, tab1_text, tab2_text, price_text, stats_text, comment_text, comment_info_text])
 
     return unique_items
 
@@ -38,12 +49,12 @@ if __name__ == "__main__":
     items = extract_from_html_files(directory)
 
     # Save extracted data to CSV in the "results" directory
-    results_directory = "./resultsHTML/"
+    results_directory = "./productPageResultsHTML/"
     os.makedirs(results_directory, exist_ok=True)  # Create the directory if it doesn't exist
     csv_filepath = os.path.join(results_directory, f"{category}.csv")  # Use f-string to make the CSV filename dynamic
     with open(csv_filepath, 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(['Title', 'Description'])
+        writer.writerow(['Heading', 'Tab1', 'Tab2', 'Price', 'Stats', 'Comment', 'CommentInfo'])
         writer.writerows(items)
     
     print(f"Total unique items extracted from HTML files: {len(items)}")
