@@ -10,7 +10,7 @@ plt.bar(categories, frequencies, color=['blue', 'orange', 'green', 'red'])
 
 # Add titles and labels
 plt.title('Frequency of Access Crime')
-plt.xlabel('Categories')
+plt.xlabel('Subcategories')
 plt.ylabel('Frequency')
 
 # Display the chart
