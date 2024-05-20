@@ -6,7 +6,12 @@ frequencies = [1896, 770, 612, 5282]
 
 # Create bar chart
 plt.figure(figsize=(10, 6))
-plt.bar(categories, frequencies, color=['blue', 'orange', 'green', 'red'])
+bars = plt.bar(categories, frequencies, color=['blue', 'orange', 'green', 'red'])
+
+# Add numbers on top of bars
+for bar in bars:
+    yval = bar.get_height()
+    plt.text(bar.get_x() + bar.get_width()/2, yval + 50, int(yval), ha='center', va='bottom')
 
 # Add titles and labels
 plt.title('Frequency of Access Crime')
