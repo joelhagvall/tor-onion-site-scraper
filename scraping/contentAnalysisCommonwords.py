@@ -9,7 +9,7 @@ def generate_keywords(description):
     words = re.findall(r'\b\w+(?:-\w+)*\b', description_lower)
     
     # Filter out common words (stop words) and words with less than 3 characters
-    stop_words = set(["and", "or", "for", "to", "in", "with", "on", "of", "is", "this", "are", "you", "your", "my"])
+    stop_words = set(["and", "or", "for", "to", "in", "with", "on", "of", "is", "this", "are", "you", "your", "my", "the"])
     filtered_words = [word for word in words if word not in stop_words and len(word) > 2]
     
     # Count the frequency of each word
