@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # Directory containing your CSV files
-results_directory = 'resultsHTML'
+results_directory = 'productPageResultsHTML'
 
 # List all CSV files in the resultsHTML directory
 results_csv_files = [file for file in os.listdir(results_directory) if file.endswith('.csv')]
