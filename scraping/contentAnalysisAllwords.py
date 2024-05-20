@@ -15,7 +15,10 @@ def generate_keywords(description):
     # Count the frequency of each word
     word_counter = Counter(filtered_words)
     
-    return word_counter
+    # Sort the dictionary in descending order by value
+    sorted_word_counter = dict(sorted(word_counter.items(), key=lambda item: item[1], reverse=True))
+    
+    return sorted_word_counter
 
 # Example description
 description = """
@@ -25,7 +28,7 @@ description = """
 # Generate keywords with occurrences
 keywords_with_occurrences = generate_keywords(description)
 
-# Print the keywords with their occurrences
-print("Keywords with Occurrences:")
+# Print the keywords with their occurrences in descending order
+print("Keywords with Occurrences (Descending Order):")
 for keyword, occurrences in keywords_with_occurrences.items():
     print(f"{keyword}: {occurrences}")

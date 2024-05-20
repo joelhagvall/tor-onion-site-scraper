@@ -15,8 +15,8 @@ def generate_keywords(description):
     # Count the frequency of each word
     word_counter = Counter(filtered_words)
     
-    # Get the top 10 most common words as keywords
-    keywords_with_occurrences = word_counter.most_common(10)
+    # Get the top 20 most common words as keywords
+    keywords_with_occurrences = word_counter.most_common(20)
     
     return keywords_with_occurrences
 
