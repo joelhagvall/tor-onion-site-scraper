@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 df = pd.read_csv("merged_data.csv")
 
 # Step 2: Define the keywords
-keywords = ['course']
+keywords = ['ddos', 'botnet', 'stresser', 'booter']
 
 # Function to search for both singular and plural forms of a keyword
 def search_keyword(keyword, column):
