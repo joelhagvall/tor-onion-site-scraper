@@ -11,7 +11,7 @@ def test_connection(url, session):
 
 if __name__ == "__main__":
     urls = [
-        "http://oirolrkrppy6sei6x6bvkkdolc4cjqzqfhxisfzu6exqblahwrrvktyd.onion/"
+        "http://oirolrkrppy6sei6x6bvkkdolc4cjqzqfhxisfzu6exqblahwrrvktyd.onion/faq/"
     ]
 
     session = requests.session()
