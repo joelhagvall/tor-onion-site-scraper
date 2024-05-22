@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 df = pd.read_csv("merged_data.csv")
 
 # Step 2: Define the keywords
-keywords = ['ddos', 'botnet', 'stresser', 'booter']
+keywords = ['attacks', 'wi-fi cracking', 'rogue access points', 'firewall']
 
 # Function to search for both singular and plural forms of a keyword
 def search_keyword(keyword, column):
@@ -46,14 +46,24 @@ merged_keyword_df = pd.concat([merged_keyword_df, total_row], ignore_index=True)
 # Step 11: Display the DataFrame
 print(merged_keyword_df)
 
+""" colors = ['#555555', '#AAAAAA', '#DDDDDD']  # dark gray, medium gray, light gray """
+
 # Step 12: Plot the data
 ax = merged_keyword_df.plot(kind='bar', x='Keyword', y=['Title_Count', 'Description_Count', 'Total_Count'], 
-                            title='Keyword Frequency in Titles and Descriptions')
+                            title='Keyword Frequency in Titles and Descriptions for Network Attacks', figsize=(10, 6))
 
-# Step 13: Annotate each bar with its count
+# Step 13: Set axis labels
+ax.set_xlabel("Keyword")
+ax.set_ylabel("Frequency")
+
+# Step 14: Annotate each bar with its count
 for index, row in merged_keyword_df.iterrows():
-    ax.text(index - 0.25, row['Title_Count'], str(row['Title_Count']), ha='center', va='bottom')
-    ax.text(index - 0.08, row['Description_Count'], str(row['Description_Count']), ha='center', va='bottom')
-    ax.text(index + 0.08, row['Total_Count'], str(row['Total_Count']), ha='center', va='bottom')
+    ax.text(index - 0.25, row['Title_Count'] + 0.5, str(row['Title_Count']), ha='center', va='bottom', fontsize=8)
+    ax.text(index, row['Description_Count'] + 0.5, str(row['Description_Count']), ha='center', va='bottom', fontsize=8)
+    ax.text(index + 0.25, row['Total_Count'] + 0.5, str(row['Total_Count']), ha='center', va='bottom', fontsize=8)
 
+# Rotate x-axis labels for better readability
+plt.xticks(rotation=45, ha='right')
+
+plt.tight_layout()
 plt.show()
