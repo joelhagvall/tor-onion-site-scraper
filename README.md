@@ -1,6 +1,6 @@
 # Tor Onion Site Scraper 
 
-This repository hosts a Python-based scraper developed to retrieve HTML files based on URLs accessible via the Tor network. The scraper is developed by Joel Hägvall and Giancarlo Valverde.
+This repository hosts a Python-based scraper developed to retrieve HTML files based on URLs accessible via the Tor network. The scraper is developed by Joel Hägvall, Giancarlo Valverde and ChatGPT.
 
 ## 📝 Features
 
@@ -63,6 +63,7 @@ To start scraping .onion sites:
 
 - **Joel Hägvall** - _Developer_
 - **Giancarlo Valverde** - _Developer_
+- ChatGPT (OpenAI) - _Large Language Model_
 
 ## License
 
