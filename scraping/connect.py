@@ -1,10 +1,7 @@
 import requests
 
 """ Function test_con() takes the URL specified att retrieves its head element from the session, that is connected 
-through socks5h proxy in order to access the TOR network. HTTP in the URL is used instead of HTTPS due to the 
-specific website's operations. """
-
-
+through socks5h proxy in order to access the TOR network. HTTP in the URL is used instead of HTTPS due to the specific website's operations. """
 def test_con(url, session):
     try:
         response = session.head(url)

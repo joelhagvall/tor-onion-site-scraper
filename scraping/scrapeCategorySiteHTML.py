@@ -13,11 +13,8 @@ USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.3"
 ]
 
-""" function retrieve_site() fetches the URL and retries if failed, using randomized user agents to appear
-less like a bot. 
-"""
 
-
+""" function retrieve_site() fetches the URL and retries if failed, using randomized user agents to appear less like a bot."""
 def retrieve_site(url, session, retries=3, backoff_factor=0.5):
     retry_strategy = Retry(
         total=retries,
@@ -39,10 +36,8 @@ def retrieve_site(url, session, retries=3, backoff_factor=0.5):
     return None
 
 
-""" The function save_html() writes the content to the specified path.
-"""
 
-
+""" The function save_html() writes the content to the specified path."""
 def save_html(content, path):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, 'w', encoding='utf-8') as file:
@@ -50,21 +45,17 @@ def save_html(content, path):
     print(f"Saved HTML content to {path}")
 
 
-""" Function is_valid_link() checks if the URL is correct.
-"""
 
-
+""" Function is_valid_link() checks if the URL is correct."""
 def is_valid_link(url, domain, category_path):
     return urlparse(url).netloc == domain and category_path in urlparse(url).path
+
 
 
 """ The function scrape_category_site() scrapes everything visible, including going through each product and its href tag.
     Timers are used in order to prevent being banned from the site due to bot activity.
     The output is created directories for the category with HTML-files for each category indexed page, and HTML-files for every
-    product page as well. 
-"""
-
-
+    product page as well. """
 def scrape_category_site(base_url, category, session, base_path):
     category_url = f"{base_url}/category/{category}"
     domain = urlparse(category_url).netloc

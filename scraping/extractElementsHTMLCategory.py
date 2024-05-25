@@ -2,11 +2,9 @@ import os
 import csv
 from bs4 import BeautifulSoup
 
+
 """ The function extract_category_page() extracts the div classes title and stats from every occurences on the categories
-respective indexed page. The output is a CSV file with Title and Stats for every listing.
-"""
-
-
+respective indexed page. The output is a CSV file with Title and Stats for every listing."""
 def extract_category_page(curr_dir):
     unique_items = {}
 

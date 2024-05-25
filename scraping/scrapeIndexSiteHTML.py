@@ -14,11 +14,9 @@ USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.3"
 ]
 
-""" The function retrieve_site() connects to the specified URL with randomized user agents
-to prevent bot-like activity. 
-"""
 
 
+""" The function retrieve_site() connects to the specified URL with randomized user agents to prevent bot-like activity."""
 def retrieve_site(url, session, retries=3, backoff_factor=0.5):
     retry_strategy = Retry(
         total=retries,
@@ -40,10 +38,8 @@ def retrieve_site(url, session, retries=3, backoff_factor=0.5):
     return None
 
 
-""" Function save_html() saves the HTML of the specified URL. 
-"""
 
-
+""" Function save_html() saves the HTML of the specified URL. """
 def save_html(content, path):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, 'w', encoding='utf-8') as file:
@@ -51,10 +47,9 @@ def save_html(content, path):
     print(f"Saved HTML content to {path}")
 
 
+
 """ Function scrape_single_page() fetches the site from retrieve_site() function and saves the site using save_html() 
 function. """
-
-
 def scrape_single_page(url, session, base_path):
     html_content = retrieve_site(url, session)
     if html_content is not None:
