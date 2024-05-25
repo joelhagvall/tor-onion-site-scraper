@@ -1,8 +1,9 @@
-import requests
 import os
-import time
 import random
-from urllib.parse import urljoin, urlparse
+import time
+from urllib.parse import urlparse
+
+import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
@@ -13,7 +14,12 @@ USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.3"
 ]
 
-def fetch_onion_site_html(url, session, retries=3, backoff_factor=0.5):
+""" The function retrieve_site() connects to the specified URL with randomized user agents
+to prevent bot-like activity. 
+"""
+
+
+def retrieve_site(url, session, retries=3, backoff_factor=0.5):
     retry_strategy = Retry(
         total=retries,
         backoff_factor=backoff_factor,
@@ -26,12 +32,17 @@ def fetch_onion_site_html(url, session, retries=3, backoff_factor=0.5):
     for _ in range(retries):
         try:
             response = session.get(url, headers={'User-Agent': random.choice(USER_AGENTS)})
-            response.raise_for_status()  # Raise an exception for HTTP errors
+            response.raise_for_status()
             return response.text
         except requests.RequestException as e:
             print(f"Error fetching {url}: {e}")
-            time.sleep(5)  # Pause for 5 seconds before retrying
+            time.sleep(5)
     return None
+
+
+""" Function save_html() saves the HTML of the specified URL. 
+"""
+
 
 def save_html(content, path):
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -39,8 +50,13 @@ def save_html(content, path):
         file.write(content)
     print(f"Saved HTML content to {path}")
 
+
+""" Function scrape_single_page() fetches the site from retrieve_site() function and saves the site using save_html() 
+function. """
+
+
 def scrape_single_page(url, session, base_path):
-    html_content = fetch_onion_site_html(url, session)
+    html_content = retrieve_site(url, session)
     if html_content is not None:
         # Save the fetched page
         page_filename = os.path.join(base_path, f"{urlparse(url).path.strip('/').replace('/', '_') or 'index.html'}")
@@ -48,6 +64,7 @@ def scrape_single_page(url, session, base_path):
         return True, "Success"
     else:
         return False, "Failed to fetch the page"
+
 
 if __name__ == "__main__":
     base_url = "http://oirolrkrppy6sei6x6bvkkdolc4cjqzqfhxisfzu6exqblahwrrvktyd.onion/faq"
@@ -57,9 +74,11 @@ if __name__ == "__main__":
     session.proxies = {'http': 'socks5h://localhost:9050', 'https': 'socks5h://localhost:9050'}
 
     base_directory = os.path.join("new_onion_sites_html", nested_directory)
-    if not os.path.exists(base_directory):
+    if os.path.exists(base_directory):
+        pass
+    else:
         os.makedirs(base_directory)
 
     success, message = scrape_single_page(base_url, session, base_directory)
-    status = "✅" if success else "❌"
+    status = "❌" if not success else "✅"
     print(f"Final status: {status}")

@@ -1,22 +1,23 @@
 import requests
-from urllib.parse import urlparse
 
-def test_connection(url, session):
+""" Function test_con() takes the URL specified att retrieves its head element from the session, that is connected 
+through socks5h proxy in order to access the TOR network. HTTP in the URL is used instead of HTTPS due to the 
+specific website's operations. """
+
+
+def test_con(url, session):
     try:
-        response = session.head(url)  # Using HEAD to minimize data transfer
-        response.raise_for_status()  # Raise an exception for HTTP errors
+        response = session.head(url)
+        response.raise_for_status()
         return "✅"
     except requests.RequestException:
         return "❌"
 
-if __name__ == "__main__":
-    urls = [
-        "http://oirolrkrppy6sei6x6bvkkdolc4cjqzqfhxisfzu6exqblahwrrvktyd.onion/faq/"
-    ]
 
+if __name__ == "__main__":
     session = requests.session()
     session.proxies = {'http': 'socks5h://localhost:9050', 'https': 'socks5h://localhost:9050'}
 
-    for url in urls:
-        status = test_connection(url, session)
-        print(f"{url} {status}")
+    url = "http://oirolrkrppy6sei6x6bvkkdolc4cjqzqfhxisfzu6exqblahwrrvktyd.onion"
+    status = test_con(url, session)
+    print(f"{url} {status}")
