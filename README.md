@@ -63,7 +63,7 @@ To start scraping .onion sites:
 
 - **Joel Hägvall** - _Developer_
 - **Giancarlo Valverde** - _Developer_
-- ChatGPT (OpenAI) - _Large Language Model_
+- **ChatGPT** (OpenAI) - _Large Language Model_
 
 ## License
 
