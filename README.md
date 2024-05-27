@@ -1,13 +1,14 @@
 # Tor Onion Site Scraper 
 
-This repository hosts a Python-based scraper developed to retrieve HTML files based on URLs accessible via the Tor network. The scraper is developed by Joel Hägvall, Giancarlo Valverde with the help of ChatGPT.
+This repository contains a Python-based scraper designed to collect HTML files from URLs accessible through the Tor network. The scraper was developed by Joel Hägvall and Giancarlo Valverde, with assistance from ChatGPT.
 
 ## 📝 Features
 
-- Saves HTML data based on URL, using Tor as a proxy.
+- Collects HTML data from URLs using Tor as a proxy.
 - Retrieves titles and descriptions from the HTML files located in a specified directory.
-- Saves the extracted data in a CSV file.
-- Plot occurrences of keywords.
+- Gathers titles and stats to provide additional details about the listings.
+- Stores the extracted data in CSV files.
+- Plots the frequency of keywords.
 
 ## 📦 Prerequisites
 
@@ -21,54 +22,86 @@ Before utilizing this scraper, ensure the following dependencies are installed o
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/yourusername/tor-onion-scraper.git
+    git clone https://github.com/**yourusername**/tor-onion-scraper.git
     cd tor-onion-scraper
     ```
 
 2. **Install Dependencies**
 
+    - Install the required libraries using `pip`:
+
+    ```bash
+    pip install requests pysocks beautifulsoup4 pandas matplotlib
+    ```
 
 3. **Ensure Tor is Running**
 
-    - Keep Tor active in the background. If using Tor Browser, keep it open while the scraper runs.
-
+    - Ensure Tor is active in the background. If you are using the Tor Browser, keep it open while the scraper runs.
 ## 🚀 Usage
 
-To start scraping .onion sites:
+Steps for Data Scraping and Content Analysis
 
-1. **Edit the `category` variable in `scrapeCategorySiteHTML.py` located in the `scraping` folder.**
-    - Set the `category` variable to the category you intend to scrape - our categories are provided in the `categoriesAndLinks.txt` file.
+1. **Prepare Category Scraping**
+- Navigate to the scraping folder.
+- Edit the _scrapeCategorySiteHTML.py_ script, updating the category array to match the first category to be scraped.
+- Execute the script.
+- A new directory "named new_onion_sites_html" is created, along with a subdirectory named after the category, containing its HTML files.
+- Repeat this process for all 24 selected categories.
 
-2. **Run the Scraper**
+2. **Scrape Index Page**
+- In the scraping folder, execute the _scrapeIndexSiteHTML.py script_.
+- A new directory named faq is created within the new_onion_sites_html directory, containing all HTML files found on the "Help & Infos" page.
 
-    ```bash
-    python scrapeCategorySiteHTML.py
-    ```
+3. **Extract Category Elements**
+- Open the _extractElementsHTMLCategory.py_ script in the scraping directory.
+- Ensure all 24 categories are present in the categories array.
+- Execute the script to generate CSV files in the "categoryPageTitleStats" directory. These files will contain the columns Title and Stats for each product in all categories.
 
-3. **Check Output**
+4. **Extract Product Elements**
+- Open the _extractElementsHTMLProduct.py_ script in the scraping folder.
+- Update the categories array to include all 24 categories.
+- Execute the script to create CSV files for all categories in the newly created "productPageResultsHTML" directory.
 
-    - Upon completion, the scraper will generate a CSV file containing titles and descriptions from the specified category, along with a directory name based on the category. Repeat this step for all categories that you want to scrape.
+5. **Compile Product Data**
+- Navigate to the "productPageResultsHTML" folder. 
+- Ensure all CSV files are created for each category, containing elements such as Title, Description, Refund Policy, and Comments.
 
-4. **Merge CSVs**
-    - Given all CSV-files created, execute the `mergeCsv.py` file and a `merged_data.csv` will be created that is now the final dataset.
-  
-5. **Plotting**
-   - Located in the `visual` folder, edit the `visualBarKeywordFreq.py` script and paste relevant keywords. Execute the script and the bar plot will show how many times the keywords occurred within the data set, both in titles, descriptions and in total. The `visualPieKeywordFreq.py` works similar but returns a pie chart instead.
+6. **Merge CSV Files**
+- In the main directory, edit the _mergeCsv.py_ script.
+- Update the "results_directory" array to "categoryPageTitleStats" and set the CSV filename to _categoryTitleStats.csv_.
+- Execute the script to merge all CSV files in the directory.
+- Repeat the process by updating the array to "productPageResultsHTML" and the CSV filename to _merged_data.csv_.
 
-## Contributing
+7. **Create Coding Scheme**
+- Develop a table with categories representing the coding scheme for content analysis.
+- Create subcategories and develop keywords for each subcategory.
+- Add a Frequency column to track keyword frequencies and a Total column for the total count.
 
+8. **Keyword Frequency Analysis**
+- Extract keywords from the first subcategory of the first crime category and paste them into the _visualBarKeywordFreq.py_ script located in the visual folder, within the keywords array.
+- Use the generated plot to record total frequencies in the table.
+- Repeat this process for every subcategory of each category.
+
+9. **Visualize Subcategory Frequencies**
+- Open the _visualBarSubcategories.py_ script.
+- Update the categories array to match all subcategories of the first crime category.
+- Edit the frequencies array to match their respective frequencies.
+
+10. **In-Depth Analysis**
+- For each crime category, perform an in-depth analysis of listings related to the research question.
+- Choose examples based on observations and the highest frequency subcategory.
+- Use the site’s search function to find examples and extract statistics from the _categoryTitleStats.csv file_.
 
 
 ## Authors
 
-- **Joel Hägvall** - _Developer_
 - **Giancarlo Valverde** - _Developer_
+- **Joel Hägvall** - _Developer_
 - **ChatGPT** (OpenAI) - _Large Language Model_
 
-## License
 
+## Disclaimer
 
-
-## Acknowledgments
+Please note that this program is primarily developed for research purposes, particularly for our thesis. We do not support or endorse any illegal or unethical activities.
 
 
