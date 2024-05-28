@@ -34,6 +34,8 @@ Before utilizing this scraper, ensure the following dependencies are installed o
     pip install requests pysocks beautifulsoup4 pandas matplotlib
     ```
 
+    - Install Tor from https://www.torproject.org/download/ 
+
 3. **Ensure Tor is Running**
 
     - Ensure Tor is active in the background. If you are using the Tor Browser, keep it open while the scraper runs.
