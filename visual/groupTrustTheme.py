@@ -48,7 +48,7 @@ themes = [theme for theme, count in sorted_themes]
 counts = [count for theme, count in sorted_themes]
 
 # Generate a color palette
-unique_colors = sns.color_palette("husl", len(themes))
+unique_colors = sns.color_palette("colorblind", len(themes))
 
 # Plotting the main bar chart for themes
 plt.figure(figsize=(14, 10))
